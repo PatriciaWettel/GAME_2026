@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Aprende Inglés Jugando</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS correcto -->
+  <link rel="stylesheet" href="css/estilos.css">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4CAF50">
+</head>
+
+<body>
+
+<header>
+  <h1>🎮 Aprende Inglés Jugando</h1>
+  <p>Lee las instrucciones en español y aprende palabras en inglés ⭐</p>
+  <h2>Estrellas: <span id="stars">0</span></h2>
+</header>
+
+<main>
+
+  <!-- NIVEL 1 -->
+  <section class="game">
+    <h3>🧩 Nivel 1 – Sopa de Letras</h3>
+    <p>Encuentra las palabras en inglés: <b>CAT – DOG – SUN</b></p>
+    <div id="wordSearch"></div>
+  </section>
+
+  <!-- NIVEL 2 -->
+  <section class="game">
+    <h3>✏️ Nivel 2 – Cruciletras</h3>
+    <p>Pista: Animal que ladra 🐶 (en inglés)</p>
+    <input type="text" id="crosswordInput" placeholder="Escribe la palabra">
+    <button onclick="checkLevel2()">Comprobar</button>
+    <p class="message" id="msgLevel2"></p>
+  </section>
+
+  <!-- NIVEL 3 -->
+  <section class="game">
+    <h3>🧠 Nivel 3 – Armar Oración</h3>
+    <p>Ordena las palabras en inglés: <b>I / LIKE / APPLES</b></p>
+    <input type="text" id="sentenceInput" placeholder="Escribe la oración">
+    <button onclick="checkLevel3()">Comprobar</button>
+    <p class="message" id="msgLevel3"></p>
+  </section>
+
+  <!-- NIVEL 4 -->
+  <section class="game">
+    <h3>❓ Nivel 4 – Pregunta</h3>
+    <p>¿Qué significa la palabra <b>CAT</b>?</p>
+    <button onclick="checkLevel4(true)">Gato</button>
+    <button onclick="checkLevel4(false)">Perro</button>
+    <p class="message" id="msgLevel4"></p>
+  </section>
+
+  <!-- NIVEL 5 -->
+  <section class="game">
+    <h3>🏆 Nivel 5 – Reto Final</h3>
+    <p>Escribe una oración en inglés que contenga la palabra <b>DOG</b></p>
+    <input type="text" id="finalInput" placeholder="Ejemplo: I like my dog">
+    <button onclick="checkLevel5()">Finalizar</button>
+    <p class="message" id="msgLevel5"></p>
+  </section>
+
+</main>
+
+<!-- JS principal -->
+<script src="js/app.js"></script>
+
+<!-- Service Worker -->
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("js/service-worker.js");
+  }
+</script>
+
+</body>
+</html>
